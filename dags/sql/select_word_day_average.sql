@@ -1,5 +1,4 @@
---KPI to see the avg of words for the day
-select 
+select
 		'{{ params.metric }}' as metric,
 		download_date as variable, 
 		now() as timestamp, 

@@ -1,6 +1,5 @@
---enligt pricerunners template 
-select '{{ params.metric }}' as metric, 
-		category as variable,   --pricerunner has country or category instead
+select '{{ params.metric }}' as metric,
+		category as variable,
 		now() as timestamp, 
 		'{{ ds }}' as date, 
 		count(*) as value

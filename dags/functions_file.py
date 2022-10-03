@@ -1,24 +1,18 @@
 
-
 from airflow.operators.python import PythonOperator
 from bs4 import BeautifulSoup
-#from selenium import webdriver
-# import chromedriver_binary  # Adds chromedriver binary to path
 import requests
-# from more_itertools import sliced
 import re
 import numpy as np
 import pandas as pd
 import time
 import json
-# from nltk.tok enize import sent_tokenize
-# from nltk import *
 from itertools import chain
 import sqlalchemy
 from sqlalchemy import create_engine
 import psycopg2
 import time
-#from IPython.display import clear_output
+# from IPython.display import clear_output
 from airflow.providers.postgres.hooks.postgres import PostgresHook
 import sys
 import os
@@ -35,7 +29,8 @@ def return_html_page(nbr = int):
     """
     time.sleep(8)
     nbr += 15 # Make so it is not the first page because than it is only fanfics without comments or kudos
-    read_url = "https://archiveofourown.org/works/search?commit=Search&page={}&utf8=%E2%9C%93&work_search%5Bbookmarks_count%5D=&work_search%5Bcharacter_names%5D=&work_search%5Bcomments_count%5D=&work_search%5Bcomplete%5D=&work_search%5Bcreators%5D=&work_search%5Bcrossover%5D=&work_search%5Bfandom_names%5D=&work_search%5Bfreeform_names%5D=&work_search%5Bhits%5D=&work_search%5Bkudos_count%5D=&work_search%5Blanguage_id%5D=&work_search%5Bquery%5D=&work_search%5Brating_ids%5D=&work_search%5Brelationship_names%5D=&work_search%5Brevised_at%5D=&work_search%5Bsingle_chapter%5D=0&work_search%5Bsort_column%5D=created_at&work_search%5Bsort_direction%5D=desc&work_search%5Btitle%5D=&work_search%5Bword_count%5D=".format(nbr)
+    read_url = "https://archiveofourown.org/works/search?commit=Search&page={}&utf8=%E2%9C%93&work_search%5Bbookmarks_count%5D=&work_search%5Bcharacter_names%5D=&work_search%5Bcomments_count%5D=&work_search%5Bcomplete%5D=&work_search%5Bcreators%5D=&work_search%5Bcrossover%5D=&work_search%5Bfandom_names%5D=&work_search%5Bfreeform_names%5D=&work_search%5Bhits%5D=&work_search%5Bkudos_count%5D=&work_search%5Blanguage_id%5D=&work_search%5Bquery%5D=&work_search%5Brating_ids%5D=&work_search%5Brelationship_names%5D=&work_search%5Brevised_at%5D=&work_search%5Bsingle_chapter%5D=0&work_search%5Bsort_column%5D=created_at&work_search%5Bsort_direction%5D=desc&work_search%5Btitle%5D=&work_search%5Bword_count%5D=".format \
+        (nbr)
     url = requests.get(read_url)
     html_soup = BeautifulSoup(url.content, 'html.parser')
     h4_soup = html_soup.findAll("h4", class_="heading")
@@ -65,10 +60,10 @@ def collect_all_ids(nbr):
     returns: list of fanfiction ids
     """
     ids_list = []
-    for i in range(1, nbr+1):
+    for i in range(1, nbr +1):
         soup = return_html_page(i)
         ids_list.append(get_fanfic_ids(soup))
-    return list(chain(*ids_list))  #unlist a list of lists
+    return list(chain(*ids_list))  # unlist a list of lists
 
 
 def insert_metric_values(fanfic_id, link, text, html_soup, dic):
@@ -139,14 +134,14 @@ def postgres_engine():  # for local database
         password= access_file.password,
         ipaddress= access_file.ipaddress,
         port=access_file.port,
-        db_name=access_file.db_name,)
+        db_name=access_file.db_name ,)
 
     cnx = create_engine(postgres_str)
     return cnx
 
 
-def airflow_engine(): #for airflow engine to
-    hook = PostgresHook(postgres_conn_id=access_file.postgres_conn_id )  #to airflow
+def airflow_engine():  # for airflow engine to
+    hook = PostgresHook(postgres_conn_id=access_file.postgres_conn_id )  # to airflow
     conn = hook.get_conn()  # this returns psycopg2.connect() object
     airflow_engine = hook.get_sqlalchemy_engine()
     return airflow_engine
@@ -157,7 +152,7 @@ def fanfiction_to_database(ds, nbr = 2, **kwargs):
   fanfic_list = collect_all_ids(nbr)  # the number of pages we will look at, each page consist of 20 ids/fanfictions
   dic_of_fanfics = read_fanfictions(fanfic_list)
   df = pd.DataFrame.from_dict(dic_of_fanfics)
-  df['download_date'] = ds  #get the date when airflow downloaded the data
+  df['download_date'] = ds  # get the date when airflow downloaded the data
   df.to_sql('fanfictions', con = airflow_engine(), if_exists = 'append', index = False)
   print("Its done, it has been saved to the database")
 
@@ -200,9 +195,11 @@ def metric_operator(metric, dest_table, source_conn_id, dest_conn_id, task_id = 
         op_kwargs={'sql': f'sql/select_{metric}.sql',
                    'dest_table': dest_table,
                    'source_conn_id': source_conn_id,
-                   'dest_conn_id':dest_conn_id
+                   'dest_conn_id' :dest_conn_id
         },
         templates_exts=['.sql']
 
     )
+
+
 
