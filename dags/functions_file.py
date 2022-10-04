@@ -12,7 +12,6 @@ import sqlalchemy
 from sqlalchemy import create_engine
 import psycopg2
 import time
-# from IPython.display import clear_output
 from airflow.providers.postgres.hooks.postgres import PostgresHook
 import sys
 import os

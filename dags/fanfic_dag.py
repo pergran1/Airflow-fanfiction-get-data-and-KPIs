@@ -1,4 +1,3 @@
-# Eftersom man inte kan debugga allt i airflow lokalt så börjar jag med att ladda in funktionera
 
 from airflow import DAG
 from datetime import datetime, timedelta
@@ -6,10 +5,8 @@ from airflow.operators.bash import BashOperator
 from airflow.operators.python import PythonOperator
 from airflow.settings import AIRFLOW_HOME
 import sys
-# sys.path.append('/opt/airflow/dags/functions_folder/functions_file')
 import sys
 import os
-# sys.path.insert(0,os.path.abspath(os.path.dirname(__file__)))
 import requests
 # from more_itertools import sliced
 import re
@@ -17,8 +14,6 @@ import numpy as np
 import pandas as pd
 import time
 import json
-# from nltk.tok enize import sent_tokenize
-# from nltk import *
 from itertools import chain
 import sqlalchemy
 from sqlalchemy import create_engine
