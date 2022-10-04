@@ -1,2 +1,2 @@
 # Fanfic ETL poject with Airflow and AWS using Lambda and Redshift 
-This is the airflow to download Fanfiction data and then create different KPIs
+Some years ago I read a intresting articale about a AI model that could create new poems, this was achivable since the model had a large dataset of poems. 
