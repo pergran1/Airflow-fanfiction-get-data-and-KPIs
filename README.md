@@ -8,16 +8,18 @@ I therefore started to think about some important steps, for example:<br>
 4) How should I **store** the data?
 5) How should I **analyze** the data?
 
-I therefore created a roadmap on how to get a lot of fanfictions and then store and analyze the data. 
+The five tasks above can be achived in many different ways. So I decided to try two approaches in order to learn more, the first approach will be using Airflow to get the data from a website and then I will store it in a local database and analyze the results in a dashboard using Google data studio. 7
+
+The first approach that focus on airflow can be viewed below: 
 
 This is the data 
 ![first_plan](https://user-images.githubusercontent.com/56206371/194145272-c8a45e6e-da82-4fe9-98ee-2ad1499fa59e.png)
 
 
 
-Here comes some more text
 
-
+The second approach is to use AWS and make everything in the cloud! This was a fun project because I learned a lot about lambda, glue and Redshift. 
+Below is second appoach which has the AWS focus:
 
 
 ![lambda drawio](https://user-images.githubusercontent.com/56206371/194149541-c7b71071-56a0-4640-8501-850a9fc1aeba.png)
