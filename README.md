@@ -27,4 +27,6 @@ Below is second appoach which has the AWS focus:
 
 # The first approach: Using Airflow 
 
-I had eariler experience with Airflow so it was fast and easy to setup. There are two main things that I use airflow for and those are 1) webscraping the website https://archiveofourown.org/ and load the data into a local postgres database and 2) use airflow to calculate several KPIs parallel and post the results 
+I had eariler experience with Airflow so it was fast and easy to setup. There are two main things that I use airflow for and those are 
+**1)** webscraping the website https://archiveofourown.org/ and load the data into a local postgres database and 
+**2)** use airflow to calculate several KPIs parallel and post the results 
