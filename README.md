@@ -11,5 +11,5 @@ I therefore started to think about some important steps, for example:<br>
 I therefore created a roadmap on how to get a lot of fanfictions and then store and analyze the data. 
 
 This is the data 
-(https://ibb.co/7VGCptC)
+[first_etl](https://ibb.co/7VGCptC)
 
