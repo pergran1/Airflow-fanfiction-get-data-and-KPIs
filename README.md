@@ -10,7 +10,7 @@ I therefore started to think about some important steps, for example:<br>
 
 The five tasks above can be achived in many different ways. So I decided to try two approaches in order to learn more, the first approach will be using Airflow to get the data from a website and then I will store it in a local database and analyze the results in a dashboard using Google data studio. 7
 
-The first approach that focus on airflow can be viewed below: 
+The first approach that focus on **airflow** can be viewed below: 
 
 This is the data 
 ![first_plan](https://user-images.githubusercontent.com/56206371/194145272-c8a45e6e-da82-4fe9-98ee-2ad1499fa59e.png)
@@ -18,8 +18,12 @@ This is the data
 
 
 
-The second approach is to use AWS and make everything in the cloud! This was a fun project because I learned a lot about lambda, glue and Redshift. 
+The second approach is to use **AWS and make everything in the cloud!☁️** This was a fun project because I learned a lot about lambda, glue and Redshift. 
 Below is second appoach which has the AWS focus:
 
 
 ![lambda drawio](https://user-images.githubusercontent.com/56206371/194149541-c7b71071-56a0-4640-8501-850a9fc1aeba.png)
+
+<br>
+# The first approach: Using Airflow 
+I had eariler experience with Airflow so it was fast and easy to setup. There are two main things that I use airflow for and those are 1) webscraping the website https://archiveofourown.org/ and load the data into a local postgres database and 2) use airflow to calculate several KPIs parallel and post the results 
