@@ -25,5 +25,7 @@ Below is second appoach which has the AWS focus:
 ![lambda drawio](https://user-images.githubusercontent.com/56206371/194149541-c7b71071-56a0-4640-8501-850a9fc1aeba.png)
 
 <br>
+
 # The first approach: Using Airflow 
+
 I had eariler experience with Airflow so it was fast and easy to setup. There are two main things that I use airflow for and those are 1) webscraping the website https://archiveofourown.org/ and load the data into a local postgres database and 2) use airflow to calculate several KPIs parallel and post the results 
