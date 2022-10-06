@@ -50,6 +50,18 @@ This is a example of the KPI table:
 
 ![kpi_table](https://user-images.githubusercontent.com/56206371/194410341-40d34a7b-0ff9-4438-91ad-017f0ee6dcd4.PNG)
 
+<br>
+
+# The second approach: Using AWS Lambda, Glue and Redshift
+
+Using AWS is a large part when dealing with big data, I therefore wanted to get hands on experience with some of the most used tools in the AWS toolbox and this project was perfect for that. 
+
+The first thing I had to change was how to web scrape the data automatically on a given time. This was easily done by using AWS Lambda and boto3 in Python. I could reuse most of the functions that I used for airflow, making it easy to switch to Lambda. The function created csv files for that days downloaded data and put it in a S3 bucket. It was quite fun to see the bucket automatically get larger day after day.
+
+
+![aws_s3_fanfictions](https://user-images.githubusercontent.com/56206371/194415520-1dd0a3aa-1fbb-43e1-a718-eed4067e4e9d.PNG)
+
+
 
 
 
