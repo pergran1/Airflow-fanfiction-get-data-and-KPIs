@@ -1,4 +1,4 @@
---enligt pricerunners template 
+
 select '{{ params.metric }}' as metric, 
 		language as variable,
 		now() as timestamp, 
