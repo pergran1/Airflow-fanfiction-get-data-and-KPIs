@@ -62,6 +62,10 @@ The first thing I had to change was how to web scrape the data automatically on 
 ![aws_s3_fanfictions](https://user-images.githubusercontent.com/56206371/194415520-1dd0a3aa-1fbb-43e1-a718-eed4067e4e9d.PNG)
 
 
+Then I used another Lambda function that is triggered when a new csv files is droped in the fanfiction bucket, this function takes the data from the csv and upload it to Redshift. 
+
+The csv only contains the raw data so I use Glue with pyspark in order to calculate the KPIs and store those in another table in the Redshift database. 
+Example of the pyspark code can be found here: [Link to pyspark code](https://github.com/pergran1/Pyspark-KPIs-for-fanfictions-and-learning/blob/master/fanfiction_pyspark.ipynb)
 
 
 
