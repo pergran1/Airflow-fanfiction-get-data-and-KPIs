@@ -67,7 +67,7 @@ The csv only contains the raw data, so I use Glue with pyspark in order to calcu
 Example of the pyspark code can be found here: [Link to pyspark code](https://github.com/pergran1/Pyspark-KPIs-for-fanfictions-and-learning/blob/master/fanfiction_pyspark.ipynb)
 
 
-And that is all! This project was very fun and I learned a lot
+And that is all! This project was very fun and I learned a lot.
 
 
 
